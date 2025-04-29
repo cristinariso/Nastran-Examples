@@ -10,7 +10,7 @@ Folder `01_Modal` contains examples of analyses using the Nastran linear modal a
 
 Folder `02_Flutter` contains examples of analyses using the Nastran linear flutter analysis solved SOL 145.
 
-The current lecture slide presents modal and flutter analyses of the Pazy wing with the original flexible tip rod and no tip mass. The folders also contain the analysis files for the model variant with a rigid tip rod used for the AePW3 results. 
+The slides present modal and flutter analyses of the Pazy wing with the original flexible tip rod and no tip mass. The folders also contain the analysis files for the model variant with a rigid tip rod used for the AePW3 results. 
 
 ## Additional Examples
 
