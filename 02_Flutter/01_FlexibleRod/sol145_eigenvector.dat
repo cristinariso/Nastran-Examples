@@ -1,0 +1,40 @@
+NASTRAN NLINES=999999
+$
+SOL 145
+CEND
+$
+ECHO = NONE
+METHOD = 1000
+FMETHOD = 2000
+SPC = 3000
+$
+BEGIN BULK
+$
+PARAM,GRDPNT,0
+PARAM,POST,0
+$
+PARAM,LMODES,10
+$
+include 'fem.bdf'
+include 'bcs.bdf'
+include 'reference_axis_grids.bdf'
+include 'reference_axis_rbe3s.bdf'
+$
+SPCADD,3000,1
+$
+EIGRL,1000,,,20
+$
+AERO,,1.0,0.0989,1.225,1
+$
+include 'dlm.bdf'
+include 'spl.bdf'
+$
+FLUTTER,2000,PK,2001,2002,2003,,,0.0001
+$
+FLFACT,2001,1.000000
+FLFACT,2002,0.001000
+FLFACT,2003,-66.0,THRU,-67.0,3
+$
+include 'mkaero.bdf'
+$
+ENDDATA

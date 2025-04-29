@@ -1,0 +1,1043 @@
+1
+ 
+ 
+ 
+ 
+                      Warning: This computer program is protected by copyright law and international treaties.       
+                  Unauthorized use, reproduction or distribution of this computer program, or any portion of it, may 
+                                          result in severe civil and criminal penalties.                             
+                         Copyright (C) 2021 MSC Software Corporation and its licensors. All rights reserved.         
+ 
+ 
+                                              * * * * * * * * * * * * * * * * * * * *
+                                              * * * * * * * * * * * * * * * * * * * *
+                                              * *                                 * *
+                                              * *           MSC Software          * *
+                                              * *               CORP              * *
+                                              * *                                 * *
+                                              * *      M S C   N a s t r a n      * *
+                                              * *                                 * *
+                                              * *                                 * *
+                                              * *                                 * *
+                                              * *     Version 2021.1-CL797725     * *
+                                              * *                                 * *
+                                              * *                                 * *
+                                              * *                                 * *
+                                              * *          MAR 10, 2021           * *
+                                              * *                                 * *
+                                              * *              Intel              * *
+                                              * *MODEL Xeon/6900 (ae-crrg-307070l * *
+                                              * * Windows 10 Enterprise 6.2 9200  * *
+                                              * * Compiled for 8664 (SINGLE Mode) * *
+                                              * *                                 * *
+                                              * * * * * * * * * * * * * * * * * * * *
+                                              * * * * * * * * * * * * * * * * * * * *
+1News file - (February 22, 2021)
+  
+               Welcome to MSC Nastran 2021.1
+  
+  
+   MSC Nastran brings powerful new features and enhancements for engineering
+   solutions.
+  
+     MSC Nastran 2021.1 Features and Enhancements
+  
+     Statics
+     The original SOL 1 (Legacy Linear Statics solution) Inertia Relief method,
+     allowing for more than six rigid body modes is now available in SOL 101
+     (Linear Statics)
+  
+     Dynamics
+     Real Coupled Modes enhancements:
+      - Supported for AVL Excite EXB Export and acoustic weakly-coupled modes
+      - Residual vector logic tuned up for improved solution accuracy
+        in transient response analysis
+  
+     Fatigue
+     CAE Fatigue Time Domain completeness
+      - Hot Spot detection for computational speed
+      - Spot Weld fatigue analyzer
+  
+     Nonlinear
+     Enhanced accelerated separation check in node-to-segment (N2S) contact
+  
+     Design Optimization
+     - Design response screening option added to force retention of all
+       defined responses in the model
+  
+     High Performance Computing
+     - Improved MUMPS direct solver performance in SOL 101 linear statics
+  
+     Documentation
+     The complete documentation set is provided in a separate installer and
+     when installed is available at: MSC_DOC_DIR/doc/pdf_nastran directory.
+     Where MSC_DOC_DIR is the directory where documentation was installed
+     This help set has cross references between documents, links to how-to
+     videos, and example files.
+  
+     Individual MSC Nastran documents are available for download from the
+       Simcompanion Website at:
+       http://simcompanion.mscsoftware.com/
+  
+     These documents were updated for the MSC Nastran 2021.1 Release
+  
+         1.  MSC Nastran 2021.1 Installation and Operations Guide
+         2.  MSC Nastran 2021.1 Quick Reference Guide
+         3.  MSC Nastran 2021.1 Release Guide
+         4.  MSC Nastran 2021.1 Linear Statics Analysis User's Guide
+         5.  MSC Nastran 2021.1 Dynamic Analysis User's Guide
+         6.  MSC Nastran 2021.1 Superelements User's Guide
+         7.  MSC Nastran 2021.1 Rotordynamics User's Guide
+         8.  MSC Nastran 2021.1 Demonstration Problems Manual
+         9.  MSC Nastran 2021.1 Nastran Embedded Fatigue User's Guide
+        10.  MSC Nastran 2021.1 Design Sensitivity and Optimization
+        11.  MSC Nastran 2021.1 Nonlinear User's Guide SOL 400
+        12.  MSC Nastran 2021.1 DMAP Programmer's Guide
+        13.  MSC Nastran 2021.1 High Performance Computing User's Guide
+        14.  MSC Nastran 2021.1 New Verification Manual
+        15.  MSC Nastran 2021.1 DEMATD Guide
+        16.  MSC Nastran 2021.1 Explicit Nonlinear (SOL 700) User's Guide
+  
+   Please refer to  MSC_DOC_DIR/doc/pdf_nastran/nastran_library.pdf
+   for the complete document set:
+  
+  
+     Feature Deprecation List
+     To streamline the MSC Nastran program and simplify ongoing maintenance
+     activiy, some obsolete capabilities have been identified and tagged for
+     removal from a future release of the program in late 2021 and 2022.
+     Please review the list of features marked for deprecation below to
+     ensure that there will be no disruption to your use of MSC Nastran.
+     If you see a feature that you currently use and do not wish to lose,
+     contact MSC Technical Support to report it.
+  
+     Features tagged for removal:
+     - P-elements
+     - SOL 600 nonlinear solution sequence
+     - Unstructured one- and two-digit solution sequences (e.g. SOL 3, SOL 24)
+     - SOL 190 (DBTRANS)
+     - TAUCS solver
+     - MSGMESH
+     - Obsolete DMAP modules
+     - SSSALTERS
+  
+     Refer to the MSC Nastran 2021 Release Guide for more details.
+  
+  
+   Additional information about the release can be found at the MSC Nastran
+   Product Support page: http://simcompanion.mscsoftware.com
+  
+   The support page provides links to these valuable information:
+      * A searchable Knowledge Base containing examples and answers to thousands
+        of frequently asked questions written by MSC Software subject-matter
+        experts.
+      * Peer-to-peer Discussion Forums enabling you to post questions for your
+        MSC Software products and receive answers from other users worldwide.
+      * A list of known issues with the product and any workarounds.
+      * Instructions on how to contact technical support
+      * A mechanism for sending us product feedback or enhancement requests.
+      * Hardware and software requirements.
+      * Examples and Tutorials
+      * and much more.
+  
+   For information on training, please visit our Training web site
+  
+      http://www.mscsoftware.com/Contents/Services/Training/
+  
+1                                                                             APRIL  28, 2025  MSC Nastran  3/10/21   PAGE     1
+                                                                                                                                    
+0        N A S T R A N    F I L E    A N D    S Y S T E M    P A R A M E T E R    E C H O                                           
+0                                                                                                                                   
+                                                                                                                                    
+                                                                                                                                    
+     $ SYSFIELD=SCR*(RAW=YES,BUFFIO=YES,WNUM=16,WSIZE=16MB) $(C:/PROGRAM FILES/MSC.SO
+     $ SYSFIELD=DBALL(RAW=YES,BUFFIO=YES,WNUM=16,WSIZE=16MB) $(C:/PROGRAM FILES/MSC.S
+     NASTRAN BUFFSIZE=32769 $(C:/PROGRAM FILES/MSC.SOFTWARE/MSC_NASTRAN/2021.1/CONF/N
+     NASTRAN NLINES=999999                                                           
+     $                                                                               
+1                                                                             APRIL  28, 2025  MSC Nastran  3/10/21   PAGE     2
+                                                                                                                                    
+0        N A S T R A N    E X E C U T I V E    C O N T R O L    E C H O                                                             
+0                                                                                                                                   
+                                                                                                                                    
+                                                                                                                                    
+     SOL 145                                                                                 
+     CEND                                                                                    
+1                                                                             APRIL  28, 2025  MSC Nastran  3/10/21   PAGE     3
+                                                                                                                                    
+0                                                                                                                                   
+0                                        C A S E    C O N T R O L    E C H O                                                        
+                 COMMAND                                                                                                            
+                 COUNT                                                                                                              
+                  1      $                                                                                       
+                  2      ECHO = NONE                                                                             
+                  3      METHOD = 1000                                                                           
+                  4      FMETHOD = 2000                                                                          
+                  5      SPC = 3000                                                                              
+                  6      $                                                                                       
+                  7      BEGIN BULK                                                                              
+1                                                                             APRIL  28, 2025  MSC Nastran  3/10/21   PAGE     4
+                                                                                                                                    
+0                                                                                                                                   
+                                              I N P U T   B U L K   D A T A   E C H O                                               
+                 ENTRY                                                                                                              
+                 COUNT        .   1  ..   2  ..   3  ..   4  ..   5  ..   6  ..   7  ..   8  ..   9  ..  10  .                      
+                              $INCLUDE "c:\Users\criso3\Repositories\00_Miscellaneous\Nastran-Aeroelasticity-Examples\02_Flutter\01_FlexibleRod\fem.bdf"
+                              $END OF INCLUDE "c:\Users\criso3\Repositories\00_Miscellaneous\Nastran-Aeroelasticity-Examples\02_Flutter\01_FlexibleRod\fem.bdf"
+                              $INCLUDE "c:\Users\criso3\Repositories\00_Miscellaneous\Nastran-Aeroelasticity-Examples\02_Flutter\01_FlexibleRod\bcs.bdf"
+                              $END OF INCLUDE "c:\Users\criso3\Repositories\00_Miscellaneous\Nastran-Aeroelasticity-Examples\02_Flutter\01_FlexibleRod\bcs.bdf"
+                              $INCLUDE "c:\Users\criso3\Repositories\00_Miscellaneous\Nastran-Aeroelasticity-Examples\02_Flutter\01_FlexibleRod\reference_axis_grids.bdf"
+                              $END OF INCLUDE "c:\Users\criso3\Repositories\00_Miscellaneous\Nastran-Aeroelasticity-Examples\02_Flutter\01_FlexibleRod\reference_axis_grids.bdf"
+                              $INCLUDE "c:\Users\criso3\Repositories\00_Miscellaneous\Nastran-Aeroelasticity-Examples\02_Flutter\01_FlexibleRod\reference_axis_rbe3s.bdf"
+                              $END OF INCLUDE "c:\Users\criso3\Repositories\00_Miscellaneous\Nastran-Aeroelasticity-Examples\02_Flutter\01_FlexibleRod\reference_axis_rbe3s.bdf"
+                              $INCLUDE "c:\Users\criso3\Repositories\00_Miscellaneous\Nastran-Aeroelasticity-Examples\02_Flutter\01_FlexibleRod\dlm.bdf"
+                              $END OF INCLUDE "c:\Users\criso3\Repositories\00_Miscellaneous\Nastran-Aeroelasticity-Examples\02_Flutter\01_FlexibleRod\dlm.bdf"
+                              $INCLUDE "c:\Users\criso3\Repositories\00_Miscellaneous\Nastran-Aeroelasticity-Examples\02_Flutter\01_FlexibleRod\spl.bdf"
+                              $END OF INCLUDE "c:\Users\criso3\Repositories\00_Miscellaneous\Nastran-Aeroelasticity-Examples\02_Flutter\01_FlexibleRod\spl.bdf"
+                              $INCLUDE "c:\Users\criso3\Repositories\00_Miscellaneous\Nastran-Aeroelasticity-Examples\02_Flutter\01_FlexibleRod\mkaero.bdf"
+                              $END OF INCLUDE "c:\Users\criso3\Repositories\00_Miscellaneous\Nastran-Aeroelasticity-Examples\02_Flutter\01_FlexibleRod\mkaero.bdf"
+1                                                                             APRIL  28, 2025  MSC Nastran  3/10/21   PAGE     5
+                                                                                                                                    
+0                                                                                                                                   
+                                        M O D E L   S U M M A R Y          BULK = 0
+                                   ENTRY NAME        NUMBER OF ENTRIES
+                                   ----------        -----------------
+                                         AERO                        1
+                                       CAERO1                        1
+                                        CBEAM                      987
+                                        CONM2                        2
+                                       CORD2R                        1
+                                       CQUAD4                     6794
+                                       CTRIA3                      168
+                                        EIGRL                        1
+                                       FLFACT                        3
+                                      FLUTTER                        1
+                                         GRID                     7007
+                                         MAT1                        5
+                                      MKAERO1                       13
+                                       PAERO1                        1
+                                        PARAM                        3
+                                        PBEAM                       24
+                                       PSHELL                        7
+                                         RBE2                      135
+                                         RBE3                       16
+                                         SET1                        1
+                                         SPC1                        1
+                                       SPCADD                        1
+                                      SPLINE2                        1
+
+ ^^^     
+ ^^^ >>> IFP OPERATIONS COMPLETE <<< 
+ ^^^     
+1                                                                             APRIL  28, 2025  MSC Nastran  3/10/21   PAGE     6
+                                                                                                                                    
+0                                                                                                                                   
+                           O U T P U T   F R O M   G R I D   P O I N T   W E I G H T   G E N E R A T O R
+0                                                     REFERENCE POINT =        0
+                                                                M O
+                      *  3.565955E-01  1.960826E-21 -3.507246E-20 -1.565323E-20 -1.152050E-05 -1.097869E-01 *
+                      *  1.960826E-21  3.565955E-01  5.887199E-24  1.152050E-05 -5.925677E-25  1.598798E-02 *
+                      * -3.507246E-20  5.887199E-24  3.565955E-01  1.097869E-01 -1.598798E-02  1.565383E-20 *
+                      * -1.565323E-20  1.152050E-05  1.097869E-01  4.542281E-02 -4.961773E-03  3.507103E-07 *
+                      * -1.152050E-05 -5.925677E-25 -1.598798E-02 -4.961773E-03  1.009241E-03  4.953051E-06 *
+                      * -1.097869E-01  1.598798E-02  1.565383E-20  3.507103E-07  4.953051E-06  4.642726E-02 *
+                                                                 S
+                                           *  1.000000E+00  0.000000E+00  0.000000E+00 *
+                                           *  0.000000E+00  1.000000E+00  0.000000E+00 *
+                                           *  0.000000E+00  0.000000E+00  1.000000E+00 *
+                               DIRECTION
+                          MASS AXIS SYSTEM (S)     MASS              X-C.G.        Y-C.G.        Z-C.G.
+                                  X            3.565955E-01     -4.389632E-20  3.078751E-01 -3.230692E-05
+                                  Y            3.565955E-01      4.483506E-02 -1.661736E-24 -3.230692E-05
+                                  Z            3.565955E-01      4.483506E-02  3.078751E-01  4.389800E-20
+                                                                I(S)
+                                           *  1.162215E-02  3.947094E-05  1.658121E-07 *
+                                           *  3.947094E-05  2.924188E-04 -1.406174E-06 *
+                                           *  1.658121E-07 -1.406174E-06  1.190978E-02 *
+                                                                I(Q)
+                                           *  1.190978E-02                             *
+                                           *                2.922811E-04               *
+                                           *                              1.162229E-02 *
+                                                                 Q
+                                           *  5.933711E-04  3.483773E-03  9.999938E-01 *
+                                           * -1.230568E-04  9.999939E-01 -3.483701E-03 *
+                                           * -9.999998E-01 -1.209889E-04  5.937962E-04 *
+
+1                                                                             APRIL  28, 2025  MSC Nastran  3/10/21   PAGE     7
+                                                                                                                                    
+0                                                                                                                                   
+1                                                                             APRIL  28, 2025  MSC Nastran  3/10/21   PAGE     8
+                                                                                                                                    
+0                                                                                                                                   
+0 RESULTANTS ABOUT ORIGIN OF SUPERELEMENT BASIC COORDINATE SYSTEM IN SUPERELEMENT BASIC SYSTEM COORDINATES.
+
+0                                                  OLOAD    RESULTANT       
+  SUBCASE/    LOAD
+  DAREA ID    TYPE       T1            T2            T3            R1            R2            R3
+0        1     FX    0.000000E+00     ----          ----          ----       0.000000E+00  0.000000E+00                             
+               FY       ----       0.000000E+00     ----       0.000000E+00     ----       0.000000E+00                             
+               FZ       ----          ----       0.000000E+00  0.000000E+00  0.000000E+00     ----                                  
+               MX       ----          ----          ----       0.000000E+00     ----          ----                                  
+               MY       ----          ----          ----          ----       0.000000E+00     ----                                  
+               MZ       ----          ----          ----          ----          ----       0.000000E+00                             
+             TOTALS  0.000000E+00  0.000000E+00  0.000000E+00  0.000000E+00  0.000000E+00  0.000000E+00
+ *** USER INFORMATION MESSAGE 5010 (LNCILS)
+     STURM SEQUENCE DATA FOR EIGENVALUE EXTRACTION.
+     TRIAL EIGENVALUE = 3.233919D+04, CYCLES = 2.862099D+01 THE STURM COUNT = 2
+ *** USER INFORMATION MESSAGE 5010 (LNCILS)
+     STURM SEQUENCE DATA FOR EIGENVALUE EXTRACTION.
+     TRIAL EIGENVALUE = 1.184130D+07, CYCLES = 5.476710D+02 THE STURM COUNT = 20
+
+ TABLE OF SHIFTS:  (LNNRIGL)
+ SHIFT #        SHIFT VALUE         FREQUENCY, CYCLES     # EIGENVALUES BELOW    # NEW EIGENVALUES FOUND
+     1.        3.2339186E+04          2.8620991E+01                 2                       21
+     2.        1.1841297E+07          5.4767104E+02                20                        0
+
+1                                                                             APRIL  28, 2025  MSC Nastran  3/10/21   PAGE     9
+                                                                                                                                    
+0                                                                                                                                   
+0
+
+
+                          E I G E N V A L U E  A N A L Y S I S   S U M M A R Y   (READ MODULE) 
+
+
+
+                                     BLOCK SIZE USED ......................     7
+
+                                     NUMBER OF DECOMPOSITIONS .............     2
+
+                                     NUMBER OF ROOTS FOUND ................    20
+
+                                     NUMBER OF SOLVES REQUIRED ............    12
+
+1                                                                             APRIL  28, 2025  MSC Nastran  3/10/21   PAGE    10
+                                                                                                                                    
+0                                                                                                                                   
+ 
+                                              R E A L   E I G E N V A L U E S
+                                         (BEFORE AUGMENTATION OF RESIDUAL VECTORS)
+   MODE    EXTRACTION      EIGENVALUE            RADIANS             CYCLES            GENERALIZED         GENERALIZED
+    NO.       ORDER                                                                       MASS              STIFFNESS
+        1         1        6.938675E+02        2.634136E+01        4.192358E+00        1.000000E+00        6.938675E+02
+        2         2        3.198865E+04        1.788537E+02        2.846545E+01        1.000000E+00        3.198865E+04
+        3         3        6.553120E+04        2.559906E+02        4.074217E+01        1.000000E+00        6.553120E+04
+        4         4        2.679516E+05        5.176404E+02        8.238503E+01        1.000000E+00        2.679516E+05
+        5         5        4.334510E+05        6.583699E+02        1.047828E+02        1.000000E+00        4.334510E+05
+        6         6        7.044299E+05        8.393032E+02        1.335793E+02        1.000000E+00        7.044299E+05
+        7         7        8.347316E+05        9.136365E+02        1.454098E+02        1.000000E+00        8.347316E+05
+        8         8        9.659561E+05        9.828307E+02        1.564224E+02        1.000000E+00        9.659561E+05
+        9         9        1.162622E+06        1.078250E+03        1.716087E+02        1.000000E+00        1.162622E+06
+       10        10        1.333351E+06        1.154708E+03        1.837775E+02        1.000000E+00        1.333351E+06
+       11        11        1.790467E+06        1.338083E+03        2.129626E+02        1.000000E+00        1.790467E+06
+       12        12        2.261706E+06        1.503897E+03        2.393526E+02        1.000000E+00        2.261706E+06
+       13        13        3.084425E+06        1.756253E+03        2.795163E+02        1.000000E+00        3.084425E+06
+       14        14        4.026043E+06        2.006500E+03        3.193444E+02        1.000000E+00        4.026043E+06
+       15        15        5.208789E+06        2.282277E+03        3.632357E+02        1.000000E+00        5.208789E+06
+       16        16        6.374948E+06        2.524866E+03        4.018449E+02        1.000000E+00        6.374948E+06
+       17        17        6.757236E+06        2.599468E+03        4.137182E+02        1.000000E+00        6.757236E+06
+       18        18        7.163158E+06        2.676408E+03        4.259635E+02        1.000000E+00        7.163158E+06
+       19        19        1.000818E+07        3.163571E+03        5.034979E+02        1.000000E+00        1.000818E+07
+       20        20        1.072148E+07        3.274367E+03        5.211317E+02        1.000000E+00        1.072148E+07
+  
+ *** SYSTEM INFORMATION MESSAGE 4159 (DFMSA)
+     THE DECOMPOSITION OF KYY      YIELDS A MAXIMUM MATRIX-TO-FACTOR-DIAGONAL RATIO OF    1.316530E+05
+ *** USER INFORMATION MESSAGE 5458 (REIG)
+     QL HOUSEHOLDER METHOD IS AUTOMATICALLY SELECTED .
+ *** USER INFORMATION MESSAGE 5458 (REIG)
+     QL HOUSEHOLDER METHOD IS AUTOMATICALLY SELECTED .
+ *** USER INFORMATION MESSAGE 5458 (REIG)
+     QL HOUSEHOLDER METHOD IS AUTOMATICALLY SELECTED .
+1                                                                             APRIL  28, 2025  MSC Nastran  3/10/21   PAGE    11
+                                                                                                                                    
+0                                                                                                                                   
+ 
+                                              R E A L   E I G E N V A L U E S
+                                         (AFTER AUGMENTATION OF RESIDUAL VECTORS)
+   MODE    EXTRACTION      EIGENVALUE            RADIANS             CYCLES            GENERALIZED         GENERALIZED
+    NO.       ORDER                                                                       MASS              STIFFNESS
+        1         1        6.938675E+02        2.634136E+01        4.192358E+00        1.000000E+00        6.938675E+02
+        2         2        3.198865E+04        1.788537E+02        2.846545E+01        1.000000E+00        3.198865E+04
+        3         3        6.553120E+04        2.559906E+02        4.074217E+01        1.000000E+00        6.553120E+04
+        4         4        2.679516E+05        5.176404E+02        8.238503E+01        1.000000E+00        2.679516E+05
+        5         5        4.334510E+05        6.583699E+02        1.047828E+02        1.000000E+00        4.334510E+05
+        6         6        7.044299E+05        8.393032E+02        1.335793E+02        1.000000E+00        7.044299E+05
+        7         7        8.347316E+05        9.136365E+02        1.454098E+02        1.000000E+00        8.347316E+05
+        8         8        9.659561E+05        9.828307E+02        1.564224E+02        1.000000E+00        9.659561E+05
+        9         9        1.162622E+06        1.078250E+03        1.716087E+02        1.000000E+00        1.162622E+06
+       10        10        1.333351E+06        1.154708E+03        1.837775E+02        1.000000E+00        1.333351E+06
+       11        11        1.790467E+06        1.338083E+03        2.129626E+02        1.000000E+00        1.790467E+06
+       12        12        2.261706E+06        1.503897E+03        2.393526E+02        1.000000E+00        2.261706E+06
+       13        13        3.084425E+06        1.756253E+03        2.795163E+02        1.000000E+00        3.084425E+06
+       14        14        4.026043E+06        2.006500E+03        3.193444E+02        1.000000E+00        4.026043E+06
+       15        15        5.208789E+06        2.282277E+03        3.632357E+02        1.000000E+00        5.208789E+06
+       16        16        6.374948E+06        2.524866E+03        4.018449E+02        1.000000E+00        6.374948E+06
+       17        17        6.757236E+06        2.599468E+03        4.137182E+02        1.000000E+00        6.757236E+06
+       18        18        7.163158E+06        2.676408E+03        4.259635E+02        1.000000E+00        7.163158E+06
+       19        19        1.000818E+07        3.163571E+03        5.034979E+02        1.000000E+00        1.000818E+07
+       20        20        1.072148E+07        3.274367E+03        5.211317E+02        1.000000E+00        1.072148E+07
+       21        21        1.499400E+07        3.872208E+03        6.162811E+02        1.000000E+00        1.499400E+07
+       22        22        1.778873E+07        4.217669E+03        6.712628E+02        1.000000E+00        1.778873E+07
+       23        23        2.248357E+07        4.741685E+03        7.546625E+02        1.000000E+00        2.248357E+07
+       24        24        5.422015E+07        7.363433E+03        1.171927E+03        1.000000E+00        5.422015E+07
+       25        25        7.169059E+07        8.467030E+03        1.347570E+03        1.000000E+00        7.169059E+07
+       26        26        1.502070E+08        1.225590E+04        1.950587E+03        1.000000E+00        1.502070E+08
+ *** USER INFORMATION MESSAGE 7588 (GKAM)
+     BASED ON THE USER PARAMETERS LMODES, LFREQ OR HFREQ, ONLY       10 OF THE       26 COMPUTED STRUCTURE MODES
+     (MODES        1 THROUGH       10) WILL BE USED IN THIS MODAL COMPLEX EIGENVALUE ANALYSIS
+     (DETAILS OF THE EIGENVALUE DATA FOR THE MODES USED ARE GIVEN BELOW)
+1                                                                             APRIL  28, 2025  MSC Nastran  3/10/21   PAGE    12
+                                                                                                                                    
+0                                                                                                                                   
+ 
+                                              R E A L   E I G E N V A L U E S
+                                        (ACTUAL MODES USED IN THE DYNAMIC ANALYSIS)
+   MODE    EXTRACTION      EIGENVALUE            RADIANS             CYCLES            GENERALIZED         GENERALIZED
+    NO.       ORDER                                                                       MASS              STIFFNESS
+        1         1        6.938675E+02        2.634136E+01        4.192358E+00        1.000000E+00        6.938675E+02
+        2         2        3.198865E+04        1.788537E+02        2.846545E+01        1.000000E+00        3.198865E+04
+        3         3        6.553120E+04        2.559906E+02        4.074217E+01        1.000000E+00        6.553120E+04
+        4         4        2.679516E+05        5.176404E+02        8.238503E+01        1.000000E+00        2.679516E+05
+        5         5        4.334510E+05        6.583699E+02        1.047828E+02        1.000000E+00        4.334510E+05
+        6         6        7.044299E+05        8.393032E+02        1.335793E+02        1.000000E+00        7.044299E+05
+        7         7        8.347316E+05        9.136365E+02        1.454098E+02        1.000000E+00        8.347316E+05
+        8         8        9.659561E+05        9.828307E+02        1.564224E+02        1.000000E+00        9.659561E+05
+        9         9        1.162622E+06        1.078250E+03        1.716087E+02        1.000000E+00        1.162622E+06
+       10        10        1.333351E+06        1.154708E+03        1.837775E+02        1.000000E+00        1.333351E+06
+
+
+                                               EIGENVECTOR FROM THE    PK METHOD
+   EIGENVALUE =    -1.30670E+01    2.29994E+01       VELOCITY =     6.60000E+01
+
+   EIGENVECTOR
+                    1.00000E+00    0.00000E+00
+                    1.00538E-02   -1.79439E-02
+                   -3.36483E-03    6.17501E-03
+                   -2.23489E-04    3.30940E-04
+                    3.30125E-07   -6.02148E-07
+                    3.22173E-04   -6.21166E-04
+                    2.09367E-04   -3.95924E-04
+                   -3.28798E-08    1.00740E-07
+                   -6.07286E-05    1.06776E-04
+                    4.88785E-07   -1.09900E-06
+
+
+                                               EIGENVECTOR FROM THE    PK METHOD
+   EIGENVALUE =    -1.92027E+01    1.68539E+02       VELOCITY =     6.60000E+01
+
+   EIGENVECTOR
+                   -9.72177E-02    1.69094E-01
+                    1.00000E+00    0.00000E+00
+                   -6.71403E-02    7.56610E-02
+                   -1.84088E-03   -4.99104E-03
+                    3.50408E-06   -4.03317E-06
+                    3.47807E-03   -7.47221E-03
+                    2.11320E-03   -4.03449E-03
+                   -9.16873E-07    5.15523E-06
+                   -4.97437E-04    1.80493E-04
+                    7.60399E-06   -3.49735E-05
+
+
+                                               EIGENVECTOR FROM THE    PK METHOD
+   EIGENVALUE =    -1.82156E-01    2.16410E+02       VELOCITY =     6.60000E+01
+
+   EIGENVECTOR
+                    3.30419E-01   -2.85887E-02
+                    1.00000E+00    0.00000E+00
+                    4.96312E-01   -2.04649E-01
+                    8.66331E-03   -2.80259E-03
+                   -1.56103E-05    5.53982E-06
+                   -1.58041E-02    4.96985E-03
+                   -1.02833E-02    2.92008E-03
+                    2.11970E-06   -2.84868E-07
+                    2.72074E-03   -9.42456E-04
+                   -3.68433E-05   -1.07121E-05
+
+
+                                               EIGENVECTOR FROM THE    PK METHOD
+   EIGENVALUE =    -8.96169E+00    5.14810E+02       VELOCITY =     6.60000E+01
+
+   EIGENVECTOR
+                   -2.26155E-03   -1.04251E-02
+                   -8.68520E-03    8.54501E-03
+                    4.47031E-03    3.63288E-03
+                    1.00000E+00    0.00000E+00
+                    1.30304E-06    1.04651E-05
+                    1.51668E-03   -2.10070E-03
+                    1.72125E-03   -4.79317E-03
+                    2.00768E-06   -4.15793E-06
+                   -2.98019E-04    4.44759E-04
+                   -1.27921E-06   -7.54134E-05
+
+
+                                               EIGENVECTOR FROM THE    PK METHOD
+   EIGENVALUE =    -1.07168E-06    6.58370E+02       VELOCITY =     6.60000E+01
+
+   EIGENVECTOR
+                   -3.02682E-05   -1.70579E-05
+                   -2.16275E-05   -6.19571E-06
+                    2.47206E-05   -1.19941E-05
+                    2.70428E-05    1.86069E-05
+                    1.00000E+00    0.00000E+00
+                    2.74481E-05   -1.90776E-05
+                    1.44594E-05   -1.12453E-06
+                    8.05708E-10    2.41281E-08
+                   -3.83532E-06   -3.02370E-06
+                   -2.51848E-08    2.51265E-08
+
+
+                                               EIGENVECTOR FROM THE    PK METHOD
+   EIGENVALUE =    -1.08384E+01    8.18649E+02       VELOCITY =     6.60000E+01
+
+   EIGENVECTOR
+                   -3.94390E-02   -2.89401E-02
+                   -6.87793E-02   -4.70563E-02
+                    3.40718E-02   -2.02287E-02
+                   -2.16402E-02   -1.14659E-02
+                   -4.23990E-05    1.19499E-05
+                    1.00000E+00    0.00000E+00
+                    1.38562E-01   -4.05072E-02
+                   -1.25741E-04    1.03474E-04
+                   -7.75058E-04   -8.89933E-03
+                    5.28020E-04   -2.15810E-04
+
+
+                                               EIGENVECTOR FROM THE    PK METHOD
+   EIGENVALUE =    -3.82179E+00    9.06833E+02       VELOCITY =     6.60000E+01
+
+   EIGENVECTOR
+                   -1.10615E-02   -8.81486E-03
+                   -2.09309E-02   -2.51342E-02
+                    1.08635E-02   -6.83667E-03
+                   -1.37846E-02   -6.19534E-03
+                   -7.25680E-06    2.23767E-06
+                   -1.25236E-01    5.09176E-02
+                    1.00000E+00    0.00000E+00
+                   -4.05534E-05   -5.81807E-05
+                   -8.39355E-03    1.19134E-02
+                    3.90280E-04   -9.80760E-05
+
+
+                                               EIGENVECTOR FROM THE    PK METHOD
+   EIGENVALUE =    -8.32340E-05    9.82831E+02       VELOCITY =     6.60000E+01
+
+   EIGENVECTOR
+                    1.60393E-05    3.16382E-05
+                    5.09245E-05    4.35755E-05
+                   -2.32371E-05    6.18164E-06
+                    1.37176E-05    3.66505E-05
+                    1.94018E-08   -1.12247E-09
+                    1.69472E-04   -9.36376E-05
+                    8.75043E-05    6.62835E-05
+                    1.00000E+00    0.00000E+00
+                   -1.49587E-04    2.17375E-04
+                   -1.46447E-06    9.84649E-07
+
+
+                                               EIGENVECTOR FROM THE    PK METHOD
+   EIGENVALUE =    -5.49122E+00    1.07295E+03       VELOCITY =     6.60000E+01
+
+   EIGENVECTOR
+                    1.17304E-03   -2.41598E-03
+                   -4.33920E-03   -2.78302E-03
+                    7.13339E-04    1.16607E-03
+                   -1.97255E-03   -4.56624E-03
+                   -6.75638E-07   -4.75845E-07
+                   -1.08482E-02    6.08584E-03
+                    8.21824E-03   -1.30923E-02
+                    2.00394E-04   -2.23261E-04
+                    1.00000E+00    0.00000E+00
+                    5.11502E-04   -4.35363E-04
+
+
+                                               EIGENVECTOR FROM THE    PK METHOD
+   EIGENVALUE =    -2.24030E-03    1.15470E+03       VELOCITY =     6.60000E+01
+
+   EIGENVECTOR
+                    2.44933E-05    9.01261E-05
+                   -2.97147E-04   -4.12937E-04
+                   -7.62831E-06   -3.49235E-05
+                   -3.71758E-04   -5.08675E-04
+                    1.01312E-07    2.13994E-08
+                   -4.73983E-04    2.39242E-04
+                   -4.07009E-04    3.50634E-04
+                    1.64237E-06   -5.11050E-07
+                   -6.50241E-04   -6.72736E-05
+                    1.00000E+00    0.00000E+00
+
+
+                                               EIGENVECTOR FROM THE    PK METHOD
+   EIGENVALUE =    -1.33166E+01    2.28600E+01       VELOCITY =     6.65000E+01
+
+   EIGENVECTOR
+                    1.00000E+00    0.00000E+00
+                    1.04667E-02   -1.82013E-02
+                   -3.49913E-03    6.25509E-03
+                   -2.28893E-04    3.31073E-04
+                    3.42925E-07   -6.09625E-07
+                    3.35919E-04   -6.30445E-04
+                    2.18148E-04   -4.01746E-04
+                   -3.52858E-08    1.03260E-07
+                   -6.30285E-05    1.08069E-04
+                    5.17636E-07   -1.12671E-06
+
+
+                                               EIGENVECTOR FROM THE    PK METHOD
+   EIGENVALUE =    -1.94891E+01    1.68087E+02       VELOCITY =     6.65000E+01
+
+   EIGENVECTOR
+                   -1.01963E-01    1.73411E-01
+                    1.00000E+00    0.00000E+00
+                   -6.98169E-02    7.61288E-02
+                   -1.88305E-03   -5.06180E-03
+                    3.66282E-06   -4.09336E-06
+                    3.65697E-03   -7.57711E-03
+                    2.22424E-03   -4.09439E-03
+                   -9.63376E-07    5.21102E-06
+                   -5.22559E-04    1.87454E-04
+                    8.06553E-06   -3.53862E-05
+
+
+                                               EIGENVECTOR FROM THE    PK METHOD
+   EIGENVALUE =    -8.59427E-03    2.15887E+02       VELOCITY =     6.65000E+01
+
+   EIGENVECTOR
+                    3.27007E-01   -3.06581E-02
+                    1.00000E+00    0.00000E+00
+                    4.80899E-01   -2.03772E-01
+                    8.50485E-03   -2.99258E-03
+                   -1.53305E-05    5.57343E-06
+                   -1.55238E-02    4.93248E-03
+                   -1.01110E-02    2.92536E-03
+                    2.05729E-06   -1.71169E-07
+                    2.67930E-03   -9.65530E-04
+                   -3.63384E-05   -1.08279E-05
+
+
+                                               EIGENVECTOR FROM THE    PK METHOD
+   EIGENVALUE =    -9.03692E+00    5.14808E+02       VELOCITY =     6.65000E+01
+
+   EIGENVECTOR
+                   -2.34364E-03   -1.04872E-02
+                   -8.79753E-03    8.65468E-03
+                    4.53420E-03    3.64402E-03
+                    1.00000E+00    0.00000E+00
+                    1.33619E-06    1.05441E-05
+                    1.55748E-03   -2.12910E-03
+                    1.74475E-03   -4.84024E-03
+                    1.99091E-06   -4.19366E-06
+                   -3.00057E-04    4.50954E-04
+                   -1.12111E-06   -7.60882E-05
+
+
+                                               EIGENVECTOR FROM THE    PK METHOD
+   EIGENVALUE =    -1.08227E-06    6.58370E+02       VELOCITY =     6.65000E+01
+
+   EIGENVECTOR
+                   -3.07621E-05   -1.71695E-05
+                   -2.20295E-05   -6.21514E-06
+                    2.51045E-05   -1.21128E-05
+                    2.73805E-05    1.87840E-05
+                    1.00000E+00    0.00000E+00
+                    2.79088E-05   -1.92901E-05
+                    1.47082E-05   -1.17110E-06
+                    8.23020E-10    2.43293E-08
+                   -3.89954E-06   -3.04274E-06
+                   -2.52994E-08    2.50282E-08
+
+
+                                               EIGENVECTOR FROM THE    PK METHOD
+   EIGENVALUE =    -1.09435E+01    8.18331E+02       VELOCITY =     6.65000E+01
+
+   EIGENVECTOR
+                   -4.01522E-02   -2.91151E-02
+                   -7.00213E-02   -4.73668E-02
+                    3.46116E-02   -2.04515E-02
+                   -2.20966E-02   -1.15219E-02
+                   -4.31262E-05    1.21627E-05
+                    1.00000E+00    0.00000E+00
+                    1.40345E-01   -4.06802E-02
+                   -1.27116E-04    1.03867E-04
+                   -8.38977E-04   -8.91756E-03
+                    5.36012E-04   -2.17681E-04
+
+
+                                               EIGENVECTOR FROM THE    PK METHOD
+   EIGENVALUE =    -3.84289E+00    9.06770E+02       VELOCITY =     6.65000E+01
+
+   EIGENVECTOR
+                   -1.11862E-02   -8.84214E-03
+                   -2.12336E-02   -2.52681E-02
+                    1.09747E-02   -6.85923E-03
+                   -1.39614E-02   -6.22411E-03
+                   -7.33390E-06    2.24131E-06
+                   -1.26815E-01    5.11118E-02
+                    1.00000E+00    0.00000E+00
+                   -4.18293E-05   -5.92495E-05
+                   -8.37741E-03    1.20454E-02
+                    3.94882E-04   -9.81526E-05
+
+
+                                               EIGENVECTOR FROM THE    PK METHOD
+   EIGENVALUE =    -8.38524E-05    9.82831E+02       VELOCITY =     6.65000E+01
+
+   EIGENVECTOR
+                    1.63527E-05    3.18007E-05
+                    5.15975E-05    4.37512E-05
+                   -2.34825E-05    6.18695E-06
+                    1.40847E-05    3.68903E-05
+                    1.95710E-08   -1.11701E-09
+                    1.71050E-04   -9.42009E-05
+                    8.97705E-05    6.70071E-05
+                    1.00000E+00    0.00000E+00
+                   -1.49451E-04    2.19047E-04
+                   -1.47887E-06    9.91740E-07
+
+
+                                               EIGENVECTOR FROM THE    PK METHOD
+   EIGENVALUE =    -5.53493E+00    1.07295E+03       VELOCITY =     6.65000E+01
+
+   EIGENVECTOR
+                    1.16500E-03   -2.43117E-03
+                   -4.39290E-03   -2.79624E-03
+                    7.18820E-04    1.17655E-03
+                   -2.01902E-03   -4.60029E-03
+                   -6.71117E-07   -4.79861E-07
+                   -1.09219E-02    6.13414E-03
+                    8.14538E-03   -1.31974E-02
+                    2.00500E-04   -2.25050E-04
+                    1.00000E+00    0.00000E+00
+                    5.15866E-04   -4.38493E-04
+
+
+                                               EIGENVECTOR FROM THE    PK METHOD
+   EIGENVALUE =    -2.25685E-03    1.15470E+03       VELOCITY =     6.65000E+01
+
+   EIGENVECTOR
+                    2.51842E-05    9.10276E-05
+                   -3.01947E-04   -4.15698E-04
+                   -7.82869E-06   -3.51067E-05
+                   -3.78071E-04   -5.12368E-04
+                    1.02829E-07    2.15339E-08
+                   -4.79785E-04    2.40795E-04
+                   -4.12169E-04    3.53298E-04
+                    1.65924E-06   -5.12873E-07
+                   -6.56158E-04   -6.88765E-05
+                    1.00000E+00    0.00000E+00
+
+
+                                               EIGENVECTOR FROM THE    PK METHOD
+   EIGENVALUE =    -1.35734E+01    2.27128E+01       VELOCITY =     6.70000E+01
+
+   EIGENVECTOR
+                    1.00000E+00    0.00000E+00
+                    1.09003E-02   -1.84584E-02
+                   -3.64001E-03    6.33490E-03
+                   -2.34444E-04    3.31029E-04
+                    3.56344E-07   -6.17069E-07
+                    3.50378E-04   -6.39754E-04
+                    2.27379E-04   -4.07582E-04
+                   -3.78531E-08    1.05828E-07
+                   -6.54372E-05    1.09355E-04
+                    5.48279E-07   -1.15492E-06
+
+
+                                               EIGENVECTOR FROM THE    PK METHOD
+   EIGENVALUE =    -1.97730E+01    1.67615E+02       VELOCITY =     6.70000E+01
+
+   EIGENVECTOR
+                   -1.06963E-01    1.77818E-01
+                    1.00000E+00    0.00000E+00
+                   -7.25575E-02    7.65323E-02
+                   -1.92524E-03   -5.13445E-03
+                    3.82755E-06   -4.15130E-06
+                    3.84323E-03   -7.68000E-03
+                    2.33981E-03   -4.15307E-03
+                   -1.01202E-06    5.26632E-06
+                   -5.48658E-04    1.94128E-04
+                    8.54700E-06   -3.57953E-05
+
+
+                                               EIGENVECTOR FROM THE    PK METHOD
+   EIGENVALUE =     1.66904E-01    2.15368E+02       VELOCITY =     6.70000E+01
+
+   EIGENVECTOR
+                    3.23609E-01   -3.27512E-02
+                    1.00000E+00    0.00000E+00
+                    4.65995E-01   -2.02936E-01
+                    8.34995E-03   -3.18004E-03
+                   -1.50541E-05    5.60927E-06
+                   -1.52463E-02    4.89883E-03
+                   -9.94044E-03    2.93223E-03
+                    1.99555E-06   -6.07264E-08
+                    2.63828E-03   -9.88507E-04
+                   -3.58354E-05   -1.09387E-05
+
+
+                                               EIGENVECTOR FROM THE    PK METHOD
+   EIGENVALUE =    -9.11222E+00    5.14805E+02       VELOCITY =     6.70000E+01
+
+   EIGENVECTOR
+                   -2.42638E-03   -1.05489E-02
+                   -8.91119E-03    8.76513E-03
+                    4.59861E-03    3.65476E-03
+                    1.00000E+00    0.00000E+00
+                    1.36952E-06    1.06230E-05
+                    1.59875E-03   -2.15773E-03
+                    1.76856E-03   -4.88747E-03
+                    1.97402E-06   -4.22938E-06
+                   -3.02132E-04    4.57187E-04
+                   -9.60312E-07   -7.67642E-05
+
+
+                                               EIGENVECTOR FROM THE    PK METHOD
+   EIGENVALUE =    -1.09291E-06    6.58370E+02       VELOCITY =     6.70000E+01
+
+   EIGENVECTOR
+                   -3.12607E-05   -1.72807E-05
+                   -2.24369E-05   -6.23410E-06
+                    2.54920E-05   -1.22321E-05
+                    2.77190E-05    1.89622E-05
+                    1.00000E+00    0.00000E+00
+                    2.83750E-05   -1.95043E-05
+                    1.49598E-05   -1.21857E-06
+                    8.39411E-10    2.45309E-08
+                   -3.96426E-06   -3.06169E-06
+                   -2.54070E-08    2.49225E-08
+
+
+                                               EIGENVECTOR FROM THE    PK METHOD
+   EIGENVALUE =    -1.10489E+01    8.18010E+02       VELOCITY =     6.70000E+01
+
+   EIGENVECTOR
+                   -4.08729E-02   -2.92893E-02
+                   -7.12773E-02   -4.76765E-02
+                    3.51573E-02   -2.06754E-02
+                   -2.25593E-02   -1.15772E-02
+                   -4.38628E-05    1.23786E-05
+                    1.00000E+00    0.00000E+00
+                    1.42134E-01   -4.08491E-02
+                   -1.28499E-04    1.04250E-04
+                   -9.03363E-04   -8.93484E-03
+                    5.44075E-04   -2.19547E-04
+
+
+                                               EIGENVECTOR FROM THE    PK METHOD
+   EIGENVALUE =    -3.86380E+00    9.06706E+02       VELOCITY =     6.70000E+01
+
+   EIGENVECTOR
+                   -1.13108E-02   -8.86877E-03
+                   -2.15370E-02   -2.54011E-02
+                    1.10857E-02   -6.88120E-03
+                   -1.41393E-02   -6.25265E-03
+                   -7.41065E-06    2.24465E-06
+                   -1.28398E-01    5.13012E-02
+                    1.00000E+00    0.00000E+00
+                   -4.31037E-05   -6.03273E-05
+                   -8.36119E-03    1.21779E-02
+                    3.99497E-04   -9.82165E-05
+
+
+                                               EIGENVECTOR FROM THE    PK METHOD
+   EIGENVALUE =    -8.44704E-05    9.82831E+02       VELOCITY =     6.70000E+01
+
+   EIGENVECTOR
+                    1.66669E-05    3.19619E-05
+                    5.22729E-05    4.39244E-05
+                   -2.37284E-05    6.19148E-06
+                    1.44537E-05    3.71293E-05
+                    1.97403E-08   -1.11124E-09
+                    1.72633E-04   -9.47611E-05
+                    9.20427E-05    6.77348E-05
+                    1.00000E+00    0.00000E+00
+                   -1.49315E-04    2.20719E-04
+                   -1.49332E-06    9.98819E-07
+
+
+                                               EIGENVECTOR FROM THE    PK METHOD
+   EIGENVALUE =    -5.57864E+00    1.07295E+03       VELOCITY =     6.70000E+01
+
+   EIGENVECTOR
+                    1.15699E-03   -2.44628E-03
+                   -4.44691E-03   -2.80931E-03
+                    7.24284E-04    1.18705E-03
+                   -2.06581E-03   -4.63431E-03
+                   -6.66518E-07   -4.83873E-07
+                   -1.09959E-02    6.18245E-03
+                    8.07223E-03   -1.33025E-02
+                    2.00607E-04   -2.26840E-04
+                    1.00000E+00    0.00000E+00
+                    5.20259E-04   -4.41614E-04
+
+
+                                               EIGENVECTOR FROM THE    PK METHOD
+   EIGENVALUE =    -2.27337E-03    1.15470E+03       VELOCITY =     6.70000E+01
+
+   EIGENVECTOR
+                    2.58837E-05    9.19331E-05
+                   -3.06779E-04   -4.18451E-04
+                   -8.03331E-06   -3.52877E-05
+                   -3.84433E-04   -5.16059E-04
+                    1.04361E-07    2.16676E-08
+                   -4.85622E-04    2.42340E-04
+                   -4.17364E-04    3.55958E-04
+                    1.67622E-06   -5.14649E-07
+                   -6.62113E-04   -7.05019E-05
+                    1.00000E+00    0.00000E+00
+1                                                                             APRIL  28, 2025  MSC Nastran  3/10/21   PAGE    13
+                                                                                                                                    
+0                                                                                                                                   
+0                                                       FLUTTER  SUMMARY
+                         CONFIGURATION = AEROSG2D     XY-SYMMETRY = ASYMMETRIC     XZ-SYMMETRY = SYMMETRIC
+       POINT =    1     MACH NUMBER =  0.0010     DENSITY RATIO =  1.0000E+00     METHOD = PK  
+
+
+       KFREQ            1./KFREQ         VELOCITY            DAMPING         FREQUENCY            COMPLEX   EIGENVALUE
+        0.0172       5.8031139E+01     6.6000000E+01    -1.1362886E+00     3.6604685E+00    -1.3066980E+01     2.2999402E+01
+        0.0170       5.8827396E+01     6.6500000E+01    -1.1650568E+00     3.6382778E+00    -1.3316584E+01     2.2859974E+01
+        0.0168       5.9653829E+01     6.7000000E+01    -1.1952197E+00     3.6148503E+00    -1.3573377E+01     2.2712774E+01
+1                                                                             APRIL  28, 2025  MSC Nastran  3/10/21   PAGE    14
+                                                                                                                                    
+0                                                                                                                                   
+0                                                       FLUTTER  SUMMARY
+                         CONFIGURATION = AEROSG2D     XY-SYMMETRY = ASYMMETRIC     XZ-SYMMETRY = SYMMETRIC
+       POINT =    2     MACH NUMBER =  0.0010     DENSITY RATIO =  1.0000E+00     METHOD = PK  
+
+
+       KFREQ            1./KFREQ         VELOCITY            DAMPING         FREQUENCY            COMPLEX   EIGENVALUE
+        0.1263       7.9191030E+00     6.6000000E+01    -2.2787128E-01     2.6823891E+01    -1.9202653E+01     1.6853948E+02
+        0.1250       8.0005870E+00     6.6500000E+01    -2.3189327E-01     2.6751838E+01    -1.9489094E+01     1.6808676E+02
+        0.1237       8.0834502E+00     6.7000000E+01    -2.3593447E-01     2.6676686E+01    -1.9773026E+01     1.6761456E+02
+1                                                                             APRIL  28, 2025  MSC Nastran  3/10/21   PAGE    15
+                                                                                                                                    
+0                                                                                                                                   
+0                                                       FLUTTER  SUMMARY
+                         CONFIGURATION = AEROSG2D     XY-SYMMETRY = ASYMMETRIC     XZ-SYMMETRY = SYMMETRIC
+       POINT =    3     MACH NUMBER =  0.0010     DENSITY RATIO =  1.0000E+00     METHOD = PK  
+
+
+       KFREQ            1./KFREQ         VELOCITY            DAMPING         FREQUENCY            COMPLEX   EIGENVALUE
+        0.1621       6.1673802E+00     6.6000000E+01    -1.6834357E-03     3.4442689E+01    -1.8215599E-01     2.1640980E+02
+        0.1605       6.2291503E+00     6.6500000E+01    -7.9618176E-05     3.4359487E+01    -8.5942654E-03     2.1588702E+02
+        0.1590       6.2911070E+00     6.7000000E+01     1.5499440E-03     3.4276902E+01     1.6690427E-01     2.1536813E+02
+1                                                                             APRIL  28, 2025  MSC Nastran  3/10/21   PAGE    16
+                                                                                                                                    
+0                                                                                                                                   
+0                                                       FLUTTER  SUMMARY
+                         CONFIGURATION = AEROSG2D     XY-SYMMETRY = ASYMMETRIC     XZ-SYMMETRY = SYMMETRIC
+       POINT =    4     MACH NUMBER =  0.0010     DENSITY RATIO =  1.0000E+00     METHOD = PK  
+
+
+       KFREQ            1./KFREQ         VELOCITY            DAMPING         FREQUENCY            COMPLEX   EIGENVALUE
+        0.3857       2.5925689E+00     6.6000000E+01    -3.4815482E-02     8.1934623E+01    -8.9616865E+00     5.1481042E+02
+        0.3828       2.6122237E+00     6.6500000E+01    -3.5107964E-02     8.1934181E+01    -9.0369241E+00     5.1480764E+02
+        0.3800       2.6318794E+00     6.7000000E+01    -3.5400685E-02     8.1933716E+01    -9.1122199E+00     5.1480472E+02
+1                                                                             APRIL  28, 2025  MSC Nastran  3/10/21   PAGE    17
+                                                                                                                                    
+0                                                                                                                                   
+0                                                       FLUTTER  SUMMARY
+                         CONFIGURATION = AEROSG2D     XY-SYMMETRY = ASYMMETRIC     XZ-SYMMETRY = SYMMETRIC
+       POINT =    5     MACH NUMBER =  0.0010     DENSITY RATIO =  1.0000E+00     METHOD = PK  
+
+
+       KFREQ            1./KFREQ         VELOCITY            DAMPING         FREQUENCY            COMPLEX   EIGENVALUE
+        0.4933       2.0272516E+00     6.6000000E+01    -3.2555610E-09     1.0478283E+02    -1.0716818E-06     6.5836993E+02
+        0.4896       2.0426096E+00     6.6500000E+01    -3.2877119E-09     1.0478283E+02    -1.0822653E-06     6.5836993E+02
+        0.4859       2.0579675E+00     6.7000000E+01    -3.3200618E-09     1.0478283E+02    -1.0929144E-06     6.5836993E+02
+1                                                                             APRIL  28, 2025  MSC Nastran  3/10/21   PAGE    18
+                                                                                                                                    
+0                                                                                                                                   
+0                                                       FLUTTER  SUMMARY
+                         CONFIGURATION = AEROSG2D     XY-SYMMETRY = ASYMMETRIC     XZ-SYMMETRY = SYMMETRIC
+       POINT =    6     MACH NUMBER =  0.0010     DENSITY RATIO =  1.0000E+00     METHOD = PK  
+
+
+       KFREQ            1./KFREQ         VELOCITY            DAMPING         FREQUENCY            COMPLEX   EIGENVALUE
+        0.6134       1.6303462E+00     6.6000000E+01    -2.6478654E-02     1.3029206E+02    -1.0838364E+01     8.1864915E+02
+        0.6085       1.6433356E+00     6.6500000E+01    -2.6745966E-02     1.3024145E+02    -1.0943529E+01     8.1833117E+02
+        0.6037       1.6563416E+00     6.7000000E+01    -2.7014103E-02     1.3019033E+02    -1.1048903E+01     8.1800997E+02
+1                                                                             APRIL  28, 2025  MSC Nastran  3/10/21   PAGE    19
+                                                                                                                                    
+0                                                                                                                                   
+0                                                       FLUTTER  SUMMARY
+                         CONFIGURATION = AEROSG2D     XY-SYMMETRY = ASYMMETRIC     XZ-SYMMETRY = SYMMETRIC
+       POINT =    7     MACH NUMBER =  0.0010     DENSITY RATIO =  1.0000E+00     METHOD = PK  
+
+
+       KFREQ            1./KFREQ         VELOCITY            DAMPING         FREQUENCY            COMPLEX   EIGENVALUE
+        0.6794       1.4718046E+00     6.6000000E+01    -8.4288686E-03     1.4432701E+02    -3.8217895E+00     9.0683334E+02
+        0.6743       1.4830589E+00     6.6500000E+01    -8.4759959E-03     1.4431686E+02    -3.8428876E+00     9.0676957E+02
+        0.6692       1.4943150E+00     6.7000000E+01    -8.5227253E-03     1.4430670E+02    -3.8638019E+00     9.0670572E+02
+1                                                                             APRIL  28, 2025  MSC Nastran  3/10/21   PAGE    20
+                                                                                                                                    
+0                                                                                                                                   
+0                                                       FLUTTER  SUMMARY
+                         CONFIGURATION = AEROSG2D     XY-SYMMETRY = ASYMMETRIC     XZ-SYMMETRY = SYMMETRIC
+       POINT =    8     MACH NUMBER =  0.0010     DENSITY RATIO =  1.0000E+00     METHOD = PK  
+
+
+       KFREQ            1./KFREQ         VELOCITY            DAMPING         FREQUENCY            COMPLEX   EIGENVALUE
+        0.7364       1.3579975E+00     6.6000000E+01    -1.6937605E-07     1.5642235E+02    -8.3233982E-05     9.8283058E+02
+        0.7308       1.3682854E+00     6.6500000E+01    -1.7063459E-07     1.5642235E+02    -8.3852448E-05     9.8283058E+02
+        0.7254       1.3785732E+00     6.7000000E+01    -1.7189201E-07     1.5642235E+02    -8.4470362E-05     9.8283058E+02
+1                                                                             APRIL  28, 2025  MSC Nastran  3/10/21   PAGE    21
+                                                                                                                                    
+0                                                                                                                                   
+0                                                       FLUTTER  SUMMARY
+                         CONFIGURATION = AEROSG2D     XY-SYMMETRY = ASYMMETRIC     XZ-SYMMETRY = SYMMETRIC
+       POINT =    9     MACH NUMBER =  0.0010     DENSITY RATIO =  1.0000E+00     METHOD = PK  
+
+
+       KFREQ            1./KFREQ         VELOCITY            DAMPING         FREQUENCY            COMPLEX   EIGENVALUE
+        0.8039       1.2439323E+00     6.6000000E+01    -1.0235711E-02     1.7076585E+02    -5.4912206E+00     1.0729535E+03
+        0.7979       1.2533606E+00     6.6500000E+01    -1.0317216E-02     1.7076523E+02    -5.5349262E+00     1.0729496E+03
+        0.7919       1.2627890E+00     6.7000000E+01    -1.0398736E-02     1.7076460E+02    -5.5786394E+00     1.0729456E+03
+1                                                                             APRIL  28, 2025  MSC Nastran  3/10/21   PAGE    22
+                                                                                                                                    
+0                                                                                                                                   
+0                                                       FLUTTER  SUMMARY
+                         CONFIGURATION = AEROSG2D     XY-SYMMETRY = ASYMMETRIC     XZ-SYMMETRY = SYMMETRIC
+       POINT =   10     MACH NUMBER =  0.0010     DENSITY RATIO =  1.0000E+00     METHOD = PK  
+
+
+       KFREQ            1./KFREQ         VELOCITY            DAMPING         FREQUENCY            COMPLEX   EIGENVALUE
+        0.8652       1.1558640E+00     6.6000000E+01    -3.8803013E-06     1.8377695E+02    -2.2403010E-03     1.1547046E+03
+        0.8586       1.1646206E+00     6.6500000E+01    -3.9089626E-06     1.8377694E+02    -2.2568485E-03     1.1547046E+03
+        0.8522       1.1733772E+00     6.7000000E+01    -3.9375795E-06     1.8377694E+02    -2.2733705E-03     1.1547045E+03
+1                                                                             APRIL  28, 2025  MSC Nastran  3/10/21   PAGE    23
+                                                                                                                                    
+0                                                                                                                                   
+ * * * *  D B D I C T   P R I N T  * * * *      SUBDMAP = PRTSUM  ,  DMAP STATEMENT NO.     74
+
+
+
+0                                   * * * *  A N A L Y S I S  S U M M A R Y  T A B L E  * * * *
+0 SEID  PEID PROJ VERS APRCH      SEMG SEMR SEKR SELG SELR MODES DYNRED SOLLIN PVALID SOLNL LOOPID DESIGN CYCLE SENSITIVITY
+ --------------------------------------------------------------------------------------------------------------------------
+     0     0    1    1 '        '    T    T    T    T    T     T      F      T      0     F     -1            0           F
+0SEID = SUPERELEMENT ID.
+ PEID = PRIMARY SUPERELEMENT ID OF IMAGE SUPERELEMENT.
+ PROJ = PROJECT ID NUMBER.
+ VERS = VERSION ID.
+ APRCH = BLANK FOR STRUCTURAL ANALYSIS.  HEAT FOR HEAT TRANSFER ANALYSIS.
+ SEMG = STIFFNESS AND MASS MATRIX GENERATION STEP.
+ SEMR = MASS MATRIX REDUCTION STEP (INCLUDES EIGENVALUE SOLUTION FOR MODES).
+ SEKR = STIFFNESS MATRIX REDUCTION STEP.
+ SELG = LOAD MATRIX GENERATION STEP.
+ SELR = LOAD MATRIX REDUCTION STEP. 
+ MODES = T (TRUE) IF NORMAL MODES OR BUCKLING MODES CALCULATED.
+ DYNRED = T (TRUE) MEANS GENERALIZED DYNAMIC AND/OR COMPONENT MODE REDUCTION PERFORMED.
+ SOLLIN = T (TRUE) IF LINEAR SOLUTION EXISTS IN DATABASE.
+ PVALID = P-DISTRIBUTION ID OF P-VALUE FOR P-ELEMENTS
+ LOOPID = THE LAST LOOPID VALUE USED IN THE NONLINEAR ANALYSIS.  USEFUL FOR RESTARTS.
+ SOLNL = T (TRUE) IF NONLINEAR SOLUTION EXISTS IN DATABASE.
+ DESIGN CYCLE = THE LAST DESIGN CYCLE (ONLY VALID IN OPTIMIZATION).
+ SENSITIVITY = SENSITIVITY MATRIX GENERATION FLAG.
+ 
+ No PARAM values were set in the Control File.
+ 
+1                                        * * * END OF JOB * * *
+ 
+ 
+ No Symbolic Replacement variables or values were specified.
+

@@ -1,0 +1,15 @@
+$
+$ AERO property
+$
+PAERO1  9999
+$
+$ DLM panels for right half-wing
+$
+$ Made many CAERO1 only for convenience
+$ of splining, could have done only 1
+$
+$ Discretization is such that there is 1
+$ panel in between each pair of nodes
+$
+CAERO1,100001,9999,,36,18,,,1
+,0.0,2.150000e-3,0.0,0.0989,0.0,5.519937e-1,0.0,0.0989
